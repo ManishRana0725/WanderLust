@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const listingSchema = new mongoose.Schema({
+const listingSchema = new Schema({
     title: {
         type:String,
         default: true,
@@ -9,11 +9,14 @@ const listingSchema = new mongoose.Schema({
     description: String,
     
     image: {
-        filename: String,
-        url: String,
+        type: Object,
+        default: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        },
     },
 
-    Price: Number,
+    price: Number,
     location: String,
     country: String,
 });
